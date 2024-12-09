@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Saman Badal</title>
         <!--fav icon-->
         <link rel="shortcut icon" href="portfolio_logo.png" type="image/x-icon">
@@ -20,6 +20,9 @@
             
         <!--============Navigation Bar========-->
         <header>
+            <meta name="description" content="Saman Badal's portfolio website showcasing skills, projects, and contact details.">
+<meta name="keywords" content="Saman Badal, Saman, Website, Nepal, Portfolio, Web Developer, Projects">
+<meta name="author" content="Saman Badal">
             <!--Logo-->
             <a href="" class="logo">Saman Badal</a>
 <!--Button for responsive device -->    
@@ -239,7 +242,7 @@
                 <form action="contact.php" method="POST">
                     
 
-                    <input type="text" name="name" placeholder="Your Name"  required autocomplete="name">
+                    <input type="text" name="name" placeholder="Your Name"  required autocomplete="name" required pattern="[A-Za-z ]+">
                     <input type="email" name="email" placeholder="Your Email"  required autocomplete="email">
                     <textarea name="message" cols="30" rows="10" placeholder="Write Message Here......" required></textarea>
                     <input type="submit" value="Send" class="contact-button">
