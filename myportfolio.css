@@ -389,6 +389,9 @@ form textarea{
     width: 40px;
     height: 40px;
 }
+.footer-social a:hover i {
+     box-shadow: 0 0 15px rgb(0, 0, 116); /* Glow effect */
+}
 .copyright{
     padding: 10px;
     background: var(--main-color);
@@ -520,6 +523,6 @@ form textarea{
     width: 300px;
    } 
    .contact-button{
-    margin-left: 25%S;
+    margin-left: 25%;
    }
 }
