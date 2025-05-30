@@ -3,11 +3,11 @@
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-echo "PHP is working.<br>";
+echo "PHP is working SAMAN.<br>";
 
 // Import PHPMailer classes
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
+//use PHPMailer\PHPMailer\PHPMailer;
+//use PHPMailer\PHPMailer\Exception;
 
 require 'PHPMailer/PHPMailer.php';
 require 'PHPMailer/SMTP.php';
