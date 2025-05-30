@@ -1,16 +1,19 @@
-FROM php:8.1-cli
+FROM php:8.1-apache
 
-# Install extensions you need
+# Install necessary PHP extensions
 RUN docker-php-ext-install mysqli
 
-# Copy all project files
-COPY . /var/www/html
+# Enable Apache mod_rewrite
+RUN a2enmod rewrite
 
-# Set working directory
+# Set the working directory
 WORKDIR /var/www/html
 
-# Expose the default PHP dev server port
-EXPOSE 10000
+# Copy project files into the container
+COPY . .
 
-# Start the PHP built-in server
-CMD ["php", "-S", "0.0.0.0:10000", "-t", "."]
+# Expose port 80
+EXPOSE 80
+
+# Start Apache server
+CMD ["apache2-foreground"]
