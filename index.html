@@ -1,477 +1,320 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Saman Badal</title>
-        <!--fav icon-->
-        <link rel="shortcut icon" href="portfolio_logo.png" type="image/x-icon">
-        <!--CSS File-->
-        <link rel="stylesheet" href="myportfolio.css">
-        
-        <!--CDN link-->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css">
-        
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Saman Badal</title>
 
+<!--fav icon-->
+<link rel="shortcut icon" href="portfolio_logo.png" type="image/x-icon">
 
+<!--CSS File-->
+<link rel="stylesheet" href="myportfolio.css">
 
-    </head>
-    <body>
- <!-- ===== Professional Live Election Bar (All-in-One) ===== -->
+<!--CDN link-->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css">
+
+<meta name="description" content="Saman Badal's portfolio website showcasing skills, projects, and contact details.">
+<meta name="keywords" content="Saman Badal, Saman, Website, Nepal, Portfolio, Web Developer, Projects">
+<meta name="author" content="Saman Badal">
 
 <style>
 
-/* ===== Election Bar ===== */
-
-.election-bar{
-
+/* Election Bar */
+.top-election-bar{
+width:100%;
 position:fixed;
 top:0;
 left:0;
-width:100%;
-display:flex;
-align-items:center;
-justify-content:space-between;
-padding:6px 15px;
-
-backdrop-filter: blur(12px);
-background:rgba(20,20,20,0.65);
-
-border-bottom:1px solid rgba(255,255,255,0.1);
-
 z-index:9999;
-transition:transform 0.4s ease;
-
+background:#fff;
 }
 
-.hide-bar{
-transform:translateY(-100%);
-}
-
-/* LEFT */
-
-.election-left{
-display:flex;
-align-items:center;
-gap:10px;
-color:white;
-font-size:14px;
-white-space:nowrap;
-overflow:hidden;
-}
-
-/* LIVE DOT */
-
-.live-dot{
-width:10px;
-height:10px;
-background:red;
-border-radius:50%;
-animation:blink 1s infinite;
-}
-
-.live-text{
-font-weight:bold;
-color:#ff4d4d;
-}
-
-/* TICKER */
-
-.ticker{
-overflow:hidden;
-width:320px;
-}
-
-.ticker span{
-display:inline-block;
-padding-left:100%;
-animation:tickerMove 12s linear infinite;
-}
-
-/* IFRAME */
-
-.election-feed iframe{
+.top-election-bar iframe{
 border:none;
-width:300px;
+display:block;
 }
 
-/* CLOSE BUTTON */
-
-.close-btn{
-
-background:none;
-border:none;
-color:white;
-font-size:18px;
-cursor:pointer;
-opacity:0.8;
-
-}
-
-.close-btn:hover{
-color:red;
-}
-
-/* Animations */
-
-@keyframes tickerMove{
-
-0%{
-transform:translateX(0);
-}
-
-100%{
-transform:translateX(-100%);
-}
-
-}
-
-@keyframes blink{
-
-0%{opacity:1;}
-50%{opacity:0.3;}
-100%{opacity:1;}
-
-}
-
-/* MOBILE */
-
-@media(max-width:768px){
-
-.election-feed iframe{
-width:200px;
-}
-
-.ticker{
-width:180px;
-}
-
+/* Push website down */
+header{
+margin-top:70px;
 }
 
 </style>
 
+</head>
 
-<div class="election-bar" id="electionBar">
+<body>
 
-  <div class="election-left">
-
-      <span class="live-dot"></span>
-      <span class="live-text">LIVE</span>
-
-      <div class="ticker">
-        <span>
-        Nepal Election Live Updates • Real-time Results • Powered by nepsebajar.com • Stay updated with latest counting results
-        </span>
-      </div>
-
-  </div>
-
-  <div class="election-feed">
-      <iframe src="https://election.nepsebajar.com/embed/live" height="60"></iframe>
-  </div>
-
-  <button class="close-btn" id="closeElection">✕</button>
-
+<!-- Election Live Bar -->
+<div class="top-election-bar">
+<iframe src="https://election.nepsebajar.com/embed/live" width="100%" height="70"></iframe>
 </div>
 
 
-<script>
+<!--============Navigation Bar========-->
+<header>
 
-/* ===== Election Bar Logic ===== */
+<!--Logo-->
+<a href="https://www.samanbadal.com.np/" class="logo">Saman Badal</a>
 
-const electionBar = document.getElementById("electionBar");
-const closeBtn = document.getElementById("closeElection");
-
-/* LocalStorage */
-
-if(localStorage.getItem("electionClosed") === "true"){
-electionBar.style.display="none";
-}
-
-/* Close button */
-
-closeBtn.onclick = function(){
-
-electionBar.style.display="none";
-localStorage.setItem("electionClosed","true");
-
-};
-
-/* Auto hide when scrolling */
-
-let lastScroll = 0;
-
-window.addEventListener("scroll", function(){
-
-let currentScroll = window.pageYOffset;
-
-if(currentScroll > lastScroll){
-
-electionBar.classList.add("hide-bar");
-
-}else{
-
-electionBar.classList.remove("hide-bar");
-
-}
-
-lastScroll = currentScroll;
-
-});
-
-</script>
-
-<!-- ===== End Election Bar ===== -->
-        <!--============Navigation Bar========-->
-        <header>
-            <meta name="description" content="Saman Badal's portfolio website showcasing skills, projects, and contact details.">
-<meta name="keywords" content="Saman Badal, Saman, Website, Nepal, Portfolio, Web Developer, Projects">
-<meta name="author" content="Saman Badal">
-            <!--Logo-->
-            <a href="https://www.samanbadal.com.np/" class="logo">Saman Badal</a>
 <!--Button for responsive device --> 
-            <div class="bx bx-menu" id="menu-icon"></div>
-            <!--Menu items-->
-            <ul class="navbar">
-               <li><a href="#home">Home</a></li>
-               <li><a href="#about">About</a></li> 
-               <li><a href="#skill">Skills</a></li> 
-               <li><a href="#services">Services</a></li>
-               <li><a href="#portfolio">Portfolio</a></li>
-               <li><a href="#blogs">Blogs</a></li>  
-               <li><a href="#contact">Contact</a></li> 
-               <!-- darkmode -->
-                <div class="bx bx-moon" id="darkmode"></div>
-            </ul>
+<div class="bx bx-menu" id="menu-icon"></div>
 
-        </header>
+<!--Menu items-->
+<ul class="navbar">
+<li><a href="#home">Home</a></li>
+<li><a href="#about">About</a></li> 
+<li><a href="#skill">Skills</a></li> 
+<li><a href="#services">Services</a></li>
+<li><a href="#portfolio">Portfolio</a></li>
+<li><a href="#blogs">Blogs</a></li>  
+<li><a href="#contact">Contact</a></li> 
 
-        <!--===========Home section=========-->
-        
-        <section class="home" id="home">
-            <div class="social">
-                <a href="https://github.com/SamanBadal10"><i class="bx bxl-github"></i></a>
-                <a href="https://np.linkedin.com/in/saman-badal-299108231"><i class="bx bxl-linkedin"></i></a>
-                <a href="https://www.facebook.com/saman_badal10/"><i class="bx bxl-facebook"></i></a>
-                <a href="https://www.instagram.com/saman_badal10/"><i class="bx bxl-instagram"></i></a>
-            </div>
+<!-- darkmode -->
+<div class="bx bx-moon" id="darkmode"></div>
+</ul>
 
-            <!--home image-->
-            <div class="home-img">
-                <img src="portfolio_logo.png" type="">
-            </div>
+</header>
 
-            <!--home content-->
-            <div class="home-text">
-                <span>Hello, I'm </span>
-                <h1>Saman Badal</h1>
-                <h2>Web Developer</h2>
-                <p>I'm passionate in the field of Information Technology & coding. My motto is <b>"Learn-Code-Learn-Work"</b>. </p>
-            <!--contact button-->
-            <a href="#contact" class="btn">Contact Me</a>
-            </div>
 
-        </section>
+<!--===========Home section=========-->
+<section class="home" id="home">
 
-        <!--About section-->
-        <section class="about" id="about">
-            <div class="heading">
-                <h2>About Me</h2>
-                <span>Introduction</span>
-
-            </div>
-            <!--About content-->
-            <div class="about-container">
-                <div class="about-img">
-                   <img src="aboutme.jpg" alt="My Picture">
-
-                </div>
-                <!--text-->
-                <div class="about-text">
-                   <P>I'm Saman Badal, a passionate BCSIT student at Pokhara University.
-                    With a deep love for coding and a strong dedication to the IT field, I'm constantly exploring innovative ways to solve problems and create seamless digital experiences. Whether it's building dynamic websites, developing efficient algorithms, or diving into the latest technologies, I'm driven by the excitement of turning ideas into reality. Welcome to my portfolio, where I showcase my journey and the projects that reflect my growth as a developer!</P> 
-                    <!--Some information-->
-                    <div class="information">
-                        <!--box-1-->
-                        <div class="info-box">
-                            <i class="bx bxs-user"></i>
-                            <span>Saman Badal</span>
-                        </div>
-                         <!--Some information-->
-                    <div class="information">
-                        <!--box-2-->
-                        <div class="info-box">
-                            <i class="bx bxs-phone"></i>
-                            <span>+977 9866128759</span>
-                        </div>
-                         <!--Some information-->
-                    <div class="information">
-                        <!--box-3-->
-                        <div class="info-box">
-                            <i class="bx bxs-envelope"></i>
-                            <span>contact@samanbadal.com.np</span>                          
-                        </div>
-                    </div>
-                    <!--button-->
-                    <a href="" class="btn">Download CV</a>
-                </div>
-            </div>
-         </section>
-
-         <!--===========Skills section========-->
-         <section class="skill" id="skill">
-           <div class="heading">
-            <h2>Skills</h2>
-            <span>My Skills</span>
-           </div>
-
-           <!--skill content-->
-           <div class="skills-container">
-            <div class="bars">
-                <!--box-1-->
-                <div class="bars-box">
-                <h3>HTML</h3>
-                <span>90%</span>
-                <div class="light-bar"></div>
-                <div class="percent-bar html-bar"></div>
-                </div>
-
-                 <!--box-2-->
-                 <div class="bars-box">
-                    <h3>CSS</h3>
-                    <span>80%</span>
-                    <div class="light-bar"></div>
-                    <div class="percent-bar css-bar"></div>
-                    </div>
-
-                     <!--box-3-->
-                <div class="bars-box">
-                    <h3>JavaScript</h3>
-                    <span>69%</span>
-                    <div class="light-bar"></div>
-                    <div class="percent-bar js-bar"></div>
-                    </div>
-
-                     <!--box-4-->
-                <div class="bars-box">
-                    <h3>React</h3>
-                    <span>45%</span>
-                    <div class="light-bar"></div>
-                    <div class="percent-bar react-bar"></div>
-                    </div>
-
-            </div>
-
-            <!--Image-->
-            <div class="skills-img">
-            <img src="skill.png" alt="">
-           </div>
-
-           </div>
-         </section>
-
-        <!--=========== Service Box============-->
-        <section class="service" id="services">
-            <div class="heading">
-                <h2>Services</h2>
-                <span>My Services</span>
-            </div>
-        
-            <div class="services-content">
-                <!--box1-->
-                <div class="services-box">
-                  <i class="bx bx-code-alt"></i>
-                  <h3>Web Developement</h3>
-                    <a href="">Learn More</a>
-                </div>
-                <!--box2-->
-                <div class="services-box">
-                    <i class="bx bx-server"></i>
-                    <h3>Backend Development</h3>
-                      <a href="">Learn More</a>
-                </div>
-                <!--box3-->
-                <div class="services-box">
-                    <i class="bx bx-brush"></i>
-                    <h3>UI/UX Design</h3>
-                      <a href="">Learn More</a>
-                </div>
-                <!--box4-->
-                <div class="services-box">
-                    <i class="bx bxl-wordpress"></i>
-                    <h3>Wordpress Developer</h3>
-                      <a href="">Learn More</a>
-                </div>
-            </div>
-        </section>
-
-        <!--============= Portfolio ==================-->
-        <section class="portfolio" id="portfolio">
-            <div class="heading">
-                <h2>Portfolio</h2>
-                <span>My Recent Work</span>
-            </div>
-
-            <div class="portfolio-content">
-                
-                <div class="portfolio-img">
-                    <img src="blogimg1.png" alt="">
-                </div>
-                <div class="portfolio-img">
-                    <img src="blogimg2.png" alt="">
-                </div>
-                <div class="portfolio-img">
-                    <img src="blogimg3.png" alt="">
-                </div>
-                <div class="portfolio-img">
-                    <img src="blogimg4.jpg" alt="">
-                </div>
-                <div class="portfolio-img">
-                    <img src="blogimg5.png" alt="">
-                </div>
-                <div class="portfolio-img">
-                    <img src="blogimg6.png" alt="">
-                </div>
-
-            </div>
-        </section>
-
-        <!--===========Contact Form==============-->
-        <section class="contact" id="contact">
-            <div class="heading">
-                <h2>Contact</h2>
-                <span>Contact With Me</span>
-            </div>
-               <!--formmmm-->
-               <div class="contact-form">
-              <form action="contact.php" method="POST">
-                    
-
-                    <input type="text" name="name" placeholder="Your Name"  required autocomplete="name" required pattern="[A-Za-z ]+">
-                    <input type="email" name="email" placeholder="Your Email"  required autocomplete="email">
-                    <textarea name="message" cols="30" rows="10" placeholder="Write Message Here......" required></textarea>
-                    <input type="submit" value="Send" class="contact-button">
-                </form>
-               </div>
-        </section>
-
-        <!--============= Footer section =================-->
-    <div class="footer">
-        <h2>Saman Badal <a href="https://twitter.com/BadalSaman?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-screen-name="false" data-show-count="false">@BadalSaman</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></h2>
-        <div class="footer-social">
-        <a href="https://github.com/SamanBadal10"><i class="bx bxl-github"></i></a>
-        <a href="https://np.linkedin.com/in/saman-badal-299108231"><i class="bx bxl-linkedin"></i></a>
-        <a href="https://www.facebook.com/saman_badal10/"><i class="bx bxl-facebook"></i></a>
-        <a href="https://www.instagram.com/saman_badal10/"><i class="bx bxl-instagram"></i></a>
-        <a href="#youtube"><i class="bx bxl-youtube"></i></a> 
-    </div>
+<div class="social">
+<a href="https://github.com/SamanBadal10"><i class="bx bxl-github"></i></a>
+<a href="https://np.linkedin.com/in/saman-badal-299108231"><i class="bx bxl-linkedin"></i></a>
+<a href="https://www.facebook.com/saman_badal10/"><i class="bx bxl-facebook"></i></a>
+<a href="https://www.instagram.com/saman_badal10/"><i class="bx bxl-instagram"></i></a>
 </div>
-<!-- Copy right-->
- <div class="copyright">
-    <p> Create By <a href="">Saman Badal</a> |©All Right Reserved. </a>
- </div>
 
-        <!--js file-->
-        <script src="myportfolio.js"></script>
-    </body>
+<!--home image-->
+<div class="home-img">
+<img src="portfolio_logo.png">
+</div>
+
+<!--home content-->
+<div class="home-text">
+<span>Hello, I'm </span>
+<h1>Saman Badal</h1>
+<h2>Web Developer</h2>
+<p>I'm passionate in the field of Information Technology & coding. My motto is <b>"Learn-Code-Learn-Work"</b>.</p>
+
+<a href="#contact" class="btn">Contact Me</a>
+</div>
+
+</section>
+
+
+<!--About section-->
+<section class="about" id="about">
+
+<div class="heading">
+<h2>About Me</h2>
+<span>Introduction</span>
+</div>
+
+<div class="about-container">
+
+<div class="about-img">
+<img src="aboutme.jpg" alt="My Picture">
+</div>
+
+<div class="about-text">
+
+<p>
+I'm Saman Badal, a passionate BCSIT student at Pokhara University.
+With a deep love for coding and a strong dedication to the IT field, I'm constantly exploring innovative ways to solve problems and create seamless digital experiences.
+</p>
+
+<div class="information">
+
+<div class="info-box">
+<i class="bx bxs-user"></i>
+<span>Saman Badal</span>
+</div>
+
+<div class="info-box">
+<i class="bx bxs-phone"></i>
+<span>+977 9866128759</span>
+</div>
+
+<div class="info-box">
+<i class="bx bxs-envelope"></i>
+<span>contact@samanbadal.com.np</span>
+</div>
+
+</div>
+
+<a href="" class="btn">Download CV</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!--===========Skills section========-->
+<section class="skill" id="skill">
+
+<div class="heading">
+<h2>Skills</h2>
+<span>My Skills</span>
+</div>
+
+<div class="skills-container">
+
+<div class="bars">
+
+<div class="bars-box">
+<h3>HTML</h3>
+<span>90%</span>
+<div class="light-bar"></div>
+<div class="percent-bar html-bar"></div>
+</div>
+
+<div class="bars-box">
+<h3>CSS</h3>
+<span>80%</span>
+<div class="light-bar"></div>
+<div class="percent-bar css-bar"></div>
+</div>
+
+<div class="bars-box">
+<h3>JavaScript</h3>
+<span>69%</span>
+<div class="light-bar"></div>
+<div class="percent-bar js-bar"></div>
+</div>
+
+<div class="bars-box">
+<h3>React</h3>
+<span>45%</span>
+<div class="light-bar"></div>
+<div class="percent-bar react-bar"></div>
+</div>
+
+</div>
+
+<div class="skills-img">
+<img src="skill.png">
+</div>
+
+</div>
+
+</section>
+
+
+<!--=========== Service Box============-->
+<section class="service" id="services">
+
+<div class="heading">
+<h2>Services</h2>
+<span>My Services</span>
+</div>
+
+<div class="services-content">
+
+<div class="services-box">
+<i class="bx bx-code-alt"></i>
+<h3>Web Developement</h3>
+<a href="">Learn More</a>
+</div>
+
+<div class="services-box">
+<i class="bx bx-server"></i>
+<h3>Backend Development</h3>
+<a href="">Learn More</a>
+</div>
+
+<div class="services-box">
+<i class="bx bx-brush"></i>
+<h3>UI/UX Design</h3>
+<a href="">Learn More</a>
+</div>
+
+<div class="services-box">
+<i class="bx bxl-wordpress"></i>
+<h3>Wordpress Developer</h3>
+<a href="">Learn More</a>
+</div>
+
+</div>
+
+</section>
+
+
+<!--============= Portfolio ==================-->
+<section class="portfolio" id="portfolio">
+
+<div class="heading">
+<h2>Portfolio</h2>
+<span>My Recent Work</span>
+</div>
+
+<div class="portfolio-content">
+
+<div class="portfolio-img"><img src="blogimg1.png"></div>
+<div class="portfolio-img"><img src="blogimg2.png"></div>
+<div class="portfolio-img"><img src="blogimg3.png"></div>
+<div class="portfolio-img"><img src="blogimg4.jpg"></div>
+<div class="portfolio-img"><img src="blogimg5.png"></div>
+<div class="portfolio-img"><img src="blogimg6.png"></div>
+
+</div>
+
+</section>
+
+
+<!--===========Contact Form==============-->
+<section class="contact" id="contact">
+
+<div class="heading">
+<h2>Contact</h2>
+<span>Contact With Me</span>
+</div>
+
+<div class="contact-form">
+
+<form action="contact.php" method="POST">
+
+<input type="text" name="name" placeholder="Your Name" required pattern="[A-Za-z ]+">
+<input type="email" name="email" placeholder="Your Email" required>
+
+<textarea name="message" cols="30" rows="10" placeholder="Write Message Here......" required></textarea>
+
+<input type="submit" value="Send" class="contact-button">
+
+</form>
+
+</div>
+
+</section>
+
+
+<!--============= Footer =================-->
+<div class="footer">
+
+<h2>Saman Badal</h2>
+
+<div class="footer-social">
+<a href="https://github.com/SamanBadal10"><i class="bx bxl-github"></i></a>
+<a href="https://np.linkedin.com/in/saman-badal-299108231"><i class="bx bxl-linkedin"></i></a>
+<a href="https://www.facebook.com/saman_badal10/"><i class="bx bxl-facebook"></i></a>
+<a href="https://www.instagram.com/saman_badal10/"><i class="bx bxl-instagram"></i></a>
+</div>
+
+</div>
+
+
+<div class="copyright">
+<p>Create By <a href="">Saman Badal</a> | © All Right Reserved.</p>
+</div>
+
+
+<!--js file-->
+<script src="myportfolio.js"></script>
+
+</body>
 </html>
