@@ -57,3 +57,47 @@ menuOptions.forEach(link => {
         }
     });
 });
+// ===== Election Bar Features =====
+
+const electionBar = document.getElementById("electionBar");
+const closeBtn = document.getElementById("closeElection");
+
+/* LocalStorage check */
+
+if(localStorage.getItem("electionClosed") === "true"){
+    electionBar.style.display = "none";
+}
+
+/* Close button */
+
+closeBtn.addEventListener("click", function(){
+
+    electionBar.style.display="none";
+
+    localStorage.setItem("electionClosed","true");
+
+});
+
+
+/* Auto hide on scroll */
+
+let lastScroll = 0;
+
+window.addEventListener("scroll", () => {
+
+let currentScroll = window.pageYOffset;
+
+if(currentScroll > lastScroll){
+
+    electionBar.classList.add("hide-bar");
+
+}
+else{
+
+    electionBar.classList.remove("hide-bar");
+
+}
+
+lastScroll = currentScroll;
+
+});
